@@ -17,6 +17,11 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string $confirmation_code
  * @property string $confirmed
  *
+ * @property Collection $articles
+ * @property Collection $comments
+ * @property Collection $subscribers
+ * @property Profile $profile
+ *
  * Class User
  * @package App\Models
  */

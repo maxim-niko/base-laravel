@@ -13,7 +13,6 @@ use App\Events\ArticleCreated;
 use App\Http\Requests\Api\Article\{
     ArticleCreate, ArticleIndex
 };
-use App\Jobs\EmailForSubscribersJob;
 use App\Models\Article;
 use App\Repositories\Article\ArticleRepository;
 
