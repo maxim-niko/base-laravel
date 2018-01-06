@@ -9,6 +9,7 @@
 namespace App\Services\Api;
 
 
+use App\Events\ArticleCreated;
 use App\Http\Requests\Api\Article\{
     ArticleCreate, ArticleIndex
 };
@@ -41,9 +42,7 @@ class ArticleService
         $user->articles()->save($article);
 
         if (!empty($user->subscribers)) {
-            foreach ($user->subscribers as $subscriber) {
-                EmailForSubscribersJob::dispatch($article->id, $subscriber->id)->onConnection('redis');
-            }
+            event(new ArticleCreated($user, $article));
         }
 
         return $user->articles()->orderBy('id', 'desc')->limit(1)->first();

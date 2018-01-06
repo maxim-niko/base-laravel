@@ -3,11 +3,23 @@
 namespace App\Models;
 
 use App\Models\Relations\UserRelation;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $confirmation_code
+ * @property string $confirmed
+ *
+ * Class User
+ * @package App\Models
+ */
 class User extends Authenticatable
 {
 

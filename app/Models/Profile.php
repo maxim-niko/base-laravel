@@ -9,6 +9,16 @@ use Illuminate\Database\Eloquent\{
 };
 
 
+/**
+ * @property int $id
+ * @property string $first_name
+ * @property string $last_name
+ *
+ * @property string $full_name
+ *
+ * Class Profile
+ * @package App\Models
+ */
 class Profile extends Model
 {
     use SoftDeletes, ProfileRelation, ProfileAttributes;

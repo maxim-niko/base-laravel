@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\{
     Model, SoftDeletes
 };
 
+/**
+ * @property int $id
+ * @property string $title
+ * @property string $desc
+ *
+ * Class Article
+ * @package App\Models
+ */
 class Article extends Model
 {
     use SoftDeletes, ArticleRelation;
