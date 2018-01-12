@@ -44,7 +44,7 @@ class ArticleService
             event(new ArticleCreated($user, $article));
         }
 
-        return $user->articles()->orderBy('id', 'desc')->limit(1)->first();
+        return $article;
 
     }
 
