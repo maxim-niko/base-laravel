@@ -1,22 +1,18 @@
 <?php
 
-namespace App\Http\Requests\Api\Article;
+namespace App\Http\Requests\Frontend\User;
 
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 /**
- * @property int $user_id
- * @property string $title
- * @property string $desc
- *
- * Class ArticleCreate
- * @package App\Http\Requests\Api\Article
+ * @property int $id
+ * Class UnsubscribeRequest
+ * @package App\Http\Requests\Frontend\Subscribe
  */
-class ArticleIndex extends FormRequest
+class UnsubscribeRequest extends FormRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,7 +20,7 @@ class ArticleIndex extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return !\Auth::guest();
     }
 
     /**
@@ -35,9 +31,9 @@ class ArticleIndex extends FormRequest
     public function rules()
     {
         return [
-            'sort' => [
-                'string',
-                Rule::in(['comments_count']),
+            'id' => [
+                'required',
+                Rule::exists('subscribers', 'user_id')->where('subscriber_id', \Auth::user()->id)
             ],
         ];
     }

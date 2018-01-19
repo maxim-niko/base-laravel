@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api\Article;
+namespace App\Http\Requests\Frontend\Article;
 
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -12,7 +12,7 @@ use Illuminate\Validation\Rule;
  * @property string $desc
  *
  * Class ArticleCreate
- * @package App\Http\Requests\Api\Article
+ * @package App\Http\Requests\Frontend\Article
  */
 class ArticleIndex extends FormRequest
 {
