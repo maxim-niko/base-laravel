@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Article\Routes\Frontend;
+namespace Tests\Unit\Article\Routes;
 
 use App\Models\Article;
 use Tests\TestDbAuthCase as Test;
@@ -8,8 +8,8 @@ use Tests\TestDbAuthCase as Test;
 /**
  * @property Article $article
  *
- * Class ArticleViewTest
- * @package Tests\Unit\Article\Frontend
+ * Class ArticleTest
+ * @package Tests\Unit\Frontend
  */
 class ArticleTest extends Test
 {

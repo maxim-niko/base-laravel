@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Article\Services\Frontend;
+namespace Tests\Unit\Frontend\Services;
 
 use App\Http\Requests\Frontend\Article\ArticleCreate;
 use App\Models\Article;
@@ -11,8 +11,8 @@ use Tests\TestDbAuthCase as Test;
 /**
  * @property Article $article
  *
- * Class ArticleViewTest
- * @package Tests\Unit\Article\Frontend
+ * Class ArticleTest
+ * @package Tests\Unit\Frontend
  */
 class ArticleTest extends Test
 {
@@ -30,9 +30,11 @@ class ArticleTest extends Test
     public function testCreate()
     {
         $article = factory(Article::class)->make();
+
         $request = $this->createMock(ArticleCreate::class);
         $request->title = $article->title;
         $request->desc = $article->desc;
+
         $article = $this->service->create($request);
         $this->assertInstanceOf(Article::class, $article);
         $this->assertDatabaseHas('articles', $article->toArray());
